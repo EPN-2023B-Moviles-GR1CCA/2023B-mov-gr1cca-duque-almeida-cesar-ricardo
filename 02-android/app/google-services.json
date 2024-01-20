@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "885759535561",
+    "project_id": "b2023-gr1acc-crda",
+    "storage_bucket": "b2023-gr1acc-crda.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:885759535561:android:9c925ccacf3395bbb52018",
+        "android_client_info": {
+          "package_name": "com.example.gr1acccrda2023b"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDCkG3iJPlu9jgoQcHgMmbJj9ulCVnHxhc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
