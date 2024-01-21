@@ -179,7 +179,7 @@ class ESqliteHelperExamen (
                 val desarrollador = resultadoConsultaLectura.getString(5)
 
                 // Convertir la fecha de lanzamiento de String a Date
-                val fechaLanzamiento = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).parse(fechaLanzamientoString)
+                val fechaLanzamiento = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).parse(fechaLanzamientoString)
 
                 sistemaOperativoEncontrado.id = id
                 sistemaOperativoEncontrado.nombre = nombre
@@ -221,7 +221,7 @@ class ESqliteHelperExamen (
                 val sistemaOperativoId = resultadoConsultaLectura.getInt(6)
 
                 // Convertir la fecha de lanzamiento de String a Date
-                val fechaLanzamiento = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).parse(fechaLanzamientoString)
+                val fechaLanzamiento = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).parse(fechaLanzamientoString)
 
                 aplicacionEncontrada.id = id
                 aplicacionEncontrada.nombre = nombre
@@ -255,7 +255,7 @@ class ESqliteHelperExamen (
                 val desarrollador = resultadoConsultaLectura.getString(5)
 
                 // Convertir la fecha de lanzamiento de String a Date
-                val fechaLanzamiento = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).parse(fechaLanzamientoString)
+                val fechaLanzamiento = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).parse(fechaLanzamientoString)
 
                 val sistemaOperativo = SistemaOperativo(id, nombre, version, fechaLanzamiento, esGratis, desarrollador)
                 sistemasOperativos.add(sistemaOperativo)

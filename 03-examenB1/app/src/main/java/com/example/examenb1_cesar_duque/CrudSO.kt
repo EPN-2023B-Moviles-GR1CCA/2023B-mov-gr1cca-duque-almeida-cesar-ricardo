@@ -1,5 +1,6 @@
 package com.example.examenb1_cesar_duque
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -19,6 +20,7 @@ class CrudSO : AppCompatActivity() {
                 val fechaLanzamiento = findViewById<EditText>(R.id.input_fechaLanzamiento)
                 val esGratis = findViewById<EditText>(R.id.input_esGratis)
                 val desarrollador = findViewById<EditText>(R.id.input_desarrollador)
+                val esGratisInt = if (esGratis.text.toString().equals("si", ignoreCase = true)) 1 else 0
 
 
                 val respuesta = BaseDeDatos
@@ -26,10 +28,12 @@ class CrudSO : AppCompatActivity() {
                         nombre.text.toString(),
                         descripcion.text.toString(),
                         fechaLanzamiento.text.toString(),
-                        esGratis.text.toString().toInt(), // Convierte el valor de texto a Int
+                        esGratisInt, // Convierte el valor de texto a Int
                         desarrollador.text.toString()
                     )
                 if (respuesta) mostrarSnackbar("Ent. Creado")
+                irActividad(SOListView::class.java)
+
             }
 
     }
@@ -41,5 +45,11 @@ class CrudSO : AppCompatActivity() {
                 Snackbar.LENGTH_LONG // tiempo
             )
             .show()
+    }
+    fun irActividad(
+        clase: Class<*>
+    ){
+        val intent = Intent(this, clase)
+        startActivity(intent)
     }
 }
