@@ -10,6 +10,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.ListView
+import com.google.android.material.snackbar.Snackbar
 
 class SOListView : AppCompatActivity() {
     val arreglo = BaseDeDatos.tablas!!.obtenerTodosSistemasOperativos()
@@ -60,16 +61,18 @@ class SOListView : AppCompatActivity() {
 
 
     override fun onContextItemSelected(item: MenuItem): Boolean {
+        // Obtén la posición del elemento seleccionado en el ListView
+        val info = item.menuInfo as AdapterView.AdapterContextMenuInfo
+        val posicion = info.position
+
+        // Obtén el sistema operativo seleccionado
+        val sistemaOperativoSeleccionado = arreglo[posicion]
+
         return when (item.itemId){
             R.id.mi_editar ->{
                 val intent = Intent(this, EditSO::class.java)
 
-                // Obtén la posición del elemento seleccionado en el ListView
-                val info = item.menuInfo as AdapterView.AdapterContextMenuInfo
-                val posicion = info.position
 
-                // Obtén el sistema operativo seleccionado
-                val sistemaOperativoSeleccionado = arreglo[posicion]
 
                 // Pasa los atributos a la actividad EditSO
                 intent.putExtra("id", sistemaOperativoSeleccionado.id)
@@ -83,13 +86,34 @@ class SOListView : AppCompatActivity() {
                 return true
             }
             R.id.mi_eliminar ->{
+                val respuesta = BaseDeDatos
+                    .tablas!!
+                    .eliminarSistemaOperativo(
+                        sistemaOperativoSeleccionado.id
+                    )
+                if (respuesta) mostrarSnackbar("Sistema Operativo Eliminado")
+                irActividad(SOListView::class.java)
                 return true
             }
             R.id.mi_ver_programas ->{
-                irActividad(CrudSO::class.java)
+                val intent = Intent(this, AListView::class.java)
+
+                intent.putExtra("id", sistemaOperativoSeleccionado.id)
+                intent.putExtra("nombre", sistemaOperativoSeleccionado.nombre)
+
+                startActivity(intent)
                 return true
             }
             else -> super.onContextItemSelected(item)
         }
+    }
+    fun mostrarSnackbar(texto: String) {
+        Snackbar
+            .make(
+                findViewById(R.id.cl_soList), // view
+                texto, // texto
+                Snackbar.LENGTH_LONG // tiempo
+            )
+            .show()
     }
 }

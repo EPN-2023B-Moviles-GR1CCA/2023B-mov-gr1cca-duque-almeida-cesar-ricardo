@@ -9,14 +9,17 @@
 
     <TextView
         android:id="@+id/textView17"
-        android:layout_width="164dp"
-        android:layout_height="27dp"
-        android:layout_marginStart="44dp"
+        android:layout_width="273dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="8dp"
         android:text="Editar Sistema Operativo"
+        android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/textView16"
+        app:layout_constraintEnd_toEndOf="@+id/input_nombre2"
+        app:layout_constraintHorizontal_bias="0.549"
         app:layout_constraintStart_toStartOf="@+id/textView16"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.61" />
+        app:layout_constraintVertical_bias="0.549" />
 
     <TextView
         android:id="@+id/textView16"
@@ -126,13 +129,13 @@
         android:id="@+id/input_desarrollador2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="40dp"
         android:ems="10"
         android:hint="nombre"
         android:inputType="text"
         app:layout_constraintBottom_toTopOf="@+id/btn_editar_so"
         app:layout_constraintEnd_toEndOf="@+id/btn_editar_so"
-        app:layout_constraintHorizontal_bias="0.68"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="@+id/btn_editar_so"
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
@@ -152,10 +155,10 @@
         android:id="@+id/btn_editar_so"
         android:layout_width="113dp"
         android:layout_height="49dp"
-        android:text="Editar"
+        android:text="Actualizar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.8" />
+        app:layout_constraintVertical_bias="0.856" />
 </androidx.constraintlayout.widget.ConstraintLayout>
