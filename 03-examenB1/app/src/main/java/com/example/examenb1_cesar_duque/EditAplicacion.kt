@@ -49,9 +49,6 @@ class EditAplicacion : AppCompatActivity() {
             val fechaLanzamiento = findViewById<EditText>(R.id.input_fecha_aplicacion2)
             val categoria = findViewById<EditText>(R.id.input_categoria2)
 
-            // Obtén el ID y otros atributos de la Intent
-            val idAplicacion = intent.getIntExtra("id", 0)
-
             // Convierte el texto de tamanoMb a un valor entero
             val tamanoMbInt = tamanoMb.text.toString().toInt()
 
@@ -62,16 +59,16 @@ class EditAplicacion : AppCompatActivity() {
                 tamanoMbInt,
                 fechaLanzamiento.text.toString(), // Asegúrate de manejar correctamente la fecha
                 categoria.text.toString(),
-                idAplicacion,
+                sistemaOperativoId,
                 id
             )
 
-
-                if (respuesta){
+            if (respuesta){
                 val intent = Intent(this, AListView::class.java)
                 intent.putExtra("id", sistemaOperativoId)
                 intent.putExtra("nombre", nombreSo)
                 startActivity(intent)}
+
 
         }
 

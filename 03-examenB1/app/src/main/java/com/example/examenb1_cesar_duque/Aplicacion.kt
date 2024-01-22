@@ -12,6 +12,6 @@ class Aplicacion(
     var sistemaOperativoId: Int
 ) {
     override fun toString(): String {
-        return "Aplicacion(id=$id, nombre='$nombre', version='$version', tamanoMb=$tamanoMb, fechaLanzamiento=$fechaLanzamiento, categoria='$categoria', SistemaOperativoid=${sistemaOperativoId})"
+        return "$nombre - $version"
     }
 }
