@@ -64,7 +64,7 @@ class EditSO : AppCompatActivity() {
             val respuesta = BaseDeDatos.tablas!!.actualizarSistemaOperativo(
                 nombre.text.toString(),
                 version.text.toString(),
-                fechaLanzamiento.text.toString(), // Asegúrate de manejar correctamente la fecha
+                fechaLanzamiento.text.toString(),
                 esGratisInt,
                 desarrollador.text.toString(),
                 idSO

@@ -2,12 +2,13 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cl_alist"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AListView">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btn_agregar2"
         android:layout_width="109dp"
         android:layout_height="50dp"
         android:layout_marginStart="128dp"
@@ -18,13 +19,14 @@
         app:layout_constraintTop_toBottomOf="@+id/nombreSO" />
 
     <ListView
+        android:id="@+id/lv_list_view2"
         android:layout_width="410dp"
         android:layout_height="551dp"
         android:layout_marginTop="28dp"
-        app:layout_constraintEnd_toEndOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="@+id/btn_agregar2"
         app:layout_constraintHorizontal_bias="0.933"
-        app:layout_constraintStart_toStartOf="@+id/button"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintStart_toStartOf="@+id/btn_agregar2"
+        app:layout_constraintTop_toBottomOf="@+id/btn_agregar2" />
 
     <TextView
         android:id="@+id/textView10"

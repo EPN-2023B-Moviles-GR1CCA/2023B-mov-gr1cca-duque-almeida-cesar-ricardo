@@ -83,7 +83,7 @@ class ESqliteHelperExamen (
         tamanoMb: Int,
         fechaLanzamiento: String,
         categoria: String,
-        sistemaOperativoId: Long // Deberías pasar el ID del sistema operativo asociado
+        sistemaOperativoId: Int // Deberías pasar el ID del sistema operativo asociado
     ): Boolean {
         val basedatosEscritura = writableDatabase
         val valoresAGuardar = ContentValues().apply {
@@ -117,7 +117,18 @@ class ESqliteHelperExamen (
         conexionEscritura.close()
         return resultadoEliminacion != -1
     }
-
+    fun eliminarAplicacion(id: Int): Boolean {
+        val conexionEscritura = writableDatabase
+        val parametrosConsultaDelete = arrayOf(id.toString())
+        val resultadoEliminacion = conexionEscritura
+            .delete(
+                "Aplicacion",
+                "id=?",
+                parametrosConsultaDelete
+            )
+        conexionEscritura.close()
+        return resultadoEliminacion != -1
+    }
     fun actualizarSistemaOperativo(
         nombre: String,
         version: String,
@@ -150,6 +161,36 @@ class ESqliteHelperExamen (
 
 
 
+    fun actualizarAplicacion(
+        nombre: String,
+        version: String,
+        tamanoMb: Int,
+        fechaLanzamiento: String,
+        categoria: String,
+        sistemaOperativoId: Int,
+        id: Int
+    ): Boolean {
+        val conexionEscritura = writableDatabase
+        val valoresAActualizar = ContentValues().apply {
+            put("nombre", nombre)
+            put("version", version)
+            put("tamanoMb", tamanoMb)
+            put("fechaLanzamiento", fechaLanzamiento)
+            put("categoria", categoria)
+            put("sistemaOperativoId", sistemaOperativoId)
+        }
+
+        val parametrosConsultaActualizar = arrayOf(id.toString())
+        val resultadoActualizacion = conexionEscritura
+            .update(
+                "Aplicacion",
+                valoresAActualizar,
+                "id=?",
+                parametrosConsultaActualizar
+            )
+        conexionEscritura.close()
+        return resultadoActualizacion != -1
+    }
 
 
 
@@ -268,6 +309,41 @@ class ESqliteHelperExamen (
 
         return sistemasOperativos
     }
+
+    fun obtenerAplicacionesPorSistemaOperativoId(sistemaOperativoId: Int): ArrayList<Aplicacion> {
+        val aplicaciones = ArrayList<Aplicacion>()
+        val baseDatosLectura = readableDatabase
+
+        val scriptConsultaLectura = "SELECT * FROM Aplicacion WHERE sistemaOperativoId = ?"
+        val parametrosConsultaLectura = arrayOf(sistemaOperativoId.toString())
+
+        val resultadoConsultaLectura = baseDatosLectura.rawQuery(scriptConsultaLectura, parametrosConsultaLectura)
+
+        if (resultadoConsultaLectura.moveToFirst()) {
+            do {
+                val id = resultadoConsultaLectura.getInt(0)
+                val nombre = resultadoConsultaLectura.getString(1)
+                val version = resultadoConsultaLectura.getString(2)
+                val tamanoMb = resultadoConsultaLectura.getInt(3)
+                val fechaLanzamientoString = resultadoConsultaLectura.getString(4)
+                val categoria = resultadoConsultaLectura.getString(5)
+
+                // Convertir la fecha de lanzamiento de String a Date
+                val fechaLanzamiento = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).parse(fechaLanzamientoString)
+
+                val aplicacion = Aplicacion(id, nombre, version, tamanoMb, fechaLanzamiento, categoria, sistemaOperativoId)
+                aplicaciones.add(aplicacion)
+
+            } while (resultadoConsultaLectura.moveToNext())
+        }
+
+        resultadoConsultaLectura.close()
+        baseDatosLectura.close()
+
+        return aplicaciones
+    }
+
+
 
 
 

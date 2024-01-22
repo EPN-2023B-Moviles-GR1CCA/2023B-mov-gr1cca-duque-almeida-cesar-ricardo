@@ -20,6 +20,7 @@ class CrudSO : AppCompatActivity() {
                 val fechaLanzamiento = findViewById<EditText>(R.id.input_fechaLanzamiento)
                 val esGratis = findViewById<EditText>(R.id.input_esGratis)
                 val desarrollador = findViewById<EditText>(R.id.input_desarrollador)
+
                 val esGratisInt = if (esGratis.text.toString().equals("si", ignoreCase = true)) 1 else 0
 
 
