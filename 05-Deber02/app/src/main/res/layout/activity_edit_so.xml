@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cl_editso"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EditSO">
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="378dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="8dp"
+        android:text="Editar Sistema Operativo"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView16"
+        app:layout_constraintEnd_toEndOf="@+id/input_nombre2"
+        app:layout_constraintHorizontal_bias="0.528"
+        app:layout_constraintStart_toStartOf="@+id/textView16"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.558" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="116dp"
+        android:text="Nombre del SO:"
+        app:layout_constraintBottom_toTopOf="@+id/input_nombre2"
+        app:layout_constraintEnd_toEndOf="@+id/textView4"
+        app:layout_constraintStart_toStartOf="@+id/input_nombre2"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <EditText
+        android:id="@+id/input_nombre2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:ems="10"
+        android:hint="nombre"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/textView15"
+        app:layout_constraintEnd_toEndOf="@+id/textView15"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textView15"
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Version:"
+        app:layout_constraintBottom_toTopOf="@+id/input_version2"
+        app:layout_constraintEnd_toEndOf="@+id/input_version2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/input_version2"
+        app:layout_constraintTop_toBottomOf="@+id/input_nombre" />
+
+    <EditText
+        android:id="@+id/input_version2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:ems="10"
+        android:hint="Version"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/textView14"
+        app:layout_constraintEnd_toEndOf="@+id/textView14"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textView14"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Fecha de  Lanzamiento:"
+        app:layout_constraintBottom_toTopOf="@+id/input_fechaLanzamiento2"
+        app:layout_constraintEnd_toEndOf="@+id/input_fechaLanzamiento2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/input_fechaLanzamiento2"
+        app:layout_constraintTop_toBottomOf="@+id/input_version" />
+
+    <EditText
+        android:id="@+id/input_fechaLanzamiento2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:ems="10"
+        android:hint="YYYY-MM-dd"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/textView13"
+        app:layout_constraintEnd_toEndOf="@+id/textView13"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textView13"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Es Gratis?"
+        app:layout_constraintBottom_toTopOf="@+id/input_esGratis2"
+        app:layout_constraintEnd_toEndOf="@+id/input_esGratis2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/input_esGratis2"
+        app:layout_constraintTop_toBottomOf="@+id/input_fechaLanzamiento" />
+
+    <EditText
+        android:id="@+id/input_esGratis2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:ems="10"
+        android:hint="Si  / No"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/textView12"
+        app:layout_constraintEnd_toEndOf="@+id/textView12"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textView12"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+    <EditText
+        android:id="@+id/input_desarrollador2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:ems="10"
+        android:hint="nombre"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/btn_editar_so"
+        app:layout_constraintEnd_toEndOf="@+id/btn_editar_so"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="@+id/btn_editar_so"
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Desarrollador:"
+        app:layout_constraintBottom_toTopOf="@+id/input_desarrollador2"
+        app:layout_constraintEnd_toEndOf="@+id/input_desarrollador2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/input_desarrollador2"
+        app:layout_constraintTop_toBottomOf="@+id/input_esGratis" />
+
+    <Button
+        android:id="@+id/btn_editar_so"
+        android:layout_width="113dp"
+        android:layout_height="49dp"
+        android:text="Actualizar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.825" />
+</androidx.constraintlayout.widget.ConstraintLayout>

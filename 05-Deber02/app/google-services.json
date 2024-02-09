@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "950681745572",
+    "project_id": "examenb1-cesar-duque",
+    "storage_bucket": "examenb1-cesar-duque.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:950681745572:android:0c6dd9af698b1547d04e31",
+        "android_client_info": {
+          "package_name": "com.example.examenb1_cesar_duque"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDTYqbT0Tqb898ds_sWGCYS02x2iueLKaU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

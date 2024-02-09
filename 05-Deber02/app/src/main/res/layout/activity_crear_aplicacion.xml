@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CrearAplicacion">
+
+    <Button
+        android:id="@+id/btn_crear_Aplicacion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Añadir"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.819" />
+
+    <EditText
+        android:id="@+id/input_version_aplicacion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:ems="10"
+        android:hint="version"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/textView18"
+        app:layout_constraintEnd_toEndOf="@+id/textView18"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textView18" />
+
+    <EditText
+        android:id="@+id/input_tamano"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:ems="10"
+        android:hint="1024"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/textView19"
+        app:layout_constraintEnd_toEndOf="@+id/textView19"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textView19" />
+
+    <EditText
+        android:id="@+id/input_fecha_aplicacion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:ems="10"
+        android:hint="dd-MM-yyyy"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/textView20"
+        app:layout_constraintEnd_toEndOf="@+id/textView20"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textView20" />
+
+    <EditText
+        android:id="@+id/input_categoria"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:ems="10"
+        android:hint="nombre"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/btn_crear_Aplicacion"
+        app:layout_constraintEnd_toEndOf="@+id/btn_crear_Aplicacion"
+        app:layout_constraintStart_toStartOf="@+id/btn_crear_Aplicacion" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Version"
+        app:layout_constraintBottom_toTopOf="@+id/input_version_aplicacion"
+        app:layout_constraintEnd_toEndOf="@+id/input_version_aplicacion"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/input_version_aplicacion" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tamaño de la aplicacion (MB)"
+        app:layout_constraintBottom_toTopOf="@+id/input_tamano"
+        app:layout_constraintEnd_toEndOf="@+id/input_tamano"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/input_tamano" />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fecha de Lanzamiento"
+        app:layout_constraintBottom_toTopOf="@+id/input_fecha_aplicacion"
+        app:layout_constraintEnd_toEndOf="@+id/input_fecha_aplicacion"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/input_fecha_aplicacion" />
+
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Categoria"
+        app:layout_constraintBottom_toTopOf="@+id/input_categoria"
+        app:layout_constraintEnd_toEndOf="@+id/input_categoria"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/input_categoria" />
+
+    <TextView
+        android:id="@+id/textView29"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre de la aplicacion"
+        app:layout_constraintBottom_toTopOf="@+id/input_nombre_aplicacion"
+        app:layout_constraintEnd_toEndOf="@+id/input_nombre_aplicacion"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/input_nombre_aplicacion" />
+
+    <EditText
+        android:id="@+id/input_nombre_aplicacion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:ems="10"
+        android:hint="nombre"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/textView11"
+        app:layout_constraintEnd_toEndOf="@+id/textView11"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textView11" />
+
+    <TextView
+        android:id="@+id/textView22"
+        android:layout_width="264dp"
+        android:layout_height="39dp"
+        android:layout_marginBottom="48dp"
+        android:text="Nueva Aplicacion"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView29"
+        app:layout_constraintEnd_toEndOf="@+id/textView29"
+        app:layout_constraintHorizontal_bias="0.247"
+        app:layout_constraintStart_toStartOf="@+id/textView29" />
+</androidx.constraintlayout.widget.ConstraintLayout>
