@@ -149,41 +149,41 @@ class IFirestore : AppCompatActivity() {
     }
 
 
-    fun crearEjemplo(){
-        val db = Firebase.firestore
-        val referenciaEjemploEstudiante = db
-            .collection("ejemplo")
-        // .document("id_hijo")
-        // .collection("estudiante")
-        val datosEstudiante = hashMapOf(
-            "nombre" to "Adrian",
-            "graduado" to false,
-            "promedio" to 14.00,
-            "direccion" to hashMapOf(
-                "direccion" to "Mitad del mundo",
-                "numeroCalle" to 1234
-            ),
-            "materias" to listOf("web", "moviles")
-        )
-        // identificador quemado (crear/actualizar)
-        referenciaEjemploEstudiante
-            .document("12345678")
-            .set(datosEstudiante)
-            .addOnSuccessListener {  }
-            .addOnFailureListener {  }
-        // identificador quemado pero autogenerado con Date().time
-        val identificador = Date().time
-        referenciaEjemploEstudiante // (crear/actualizar)
-            .document(identificador.toString())
-            .set(datosEstudiante)
-            .addOnSuccessListener {  }
-            .addOnFailureListener {  }
-        // Sin IDENTIFICADOR (crear)
-        referenciaEjemploEstudiante
-            .add(datosEstudiante)
-            .addOnCompleteListener {  }
-            .addOnFailureListener {  }
-    }
+        fun crearEjemplo(){
+            val db = Firebase.firestore
+            val referenciaEjemploEstudiante = db
+                .collection("ejemplo")
+            // .document("id_hijo")
+            // .collection("estudiante")
+            val datosEstudiante = hashMapOf(
+                "nombre" to "Adrian",
+                "graduado" to false,
+                "promedio" to 14.00,
+                "direccion" to hashMapOf(
+                    "direccion" to "Mitad del mundo",
+                    "numeroCalle" to 1234
+                ),
+                "materias" to listOf("web", "moviles")
+            )
+            // identificador quemado (crear/actualizar)
+            referenciaEjemploEstudiante
+                .document("12345678")
+                .set(datosEstudiante)
+                .addOnSuccessListener {  }
+                .addOnFailureListener {  }
+            // identificador quemado pero autogenerado con Date().time
+            val identificador = Date().time
+            referenciaEjemploEstudiante // (crear/actualizar)
+                .document(identificador.toString())
+                .set(datosEstudiante)
+                .addOnSuccessListener {  }
+                .addOnFailureListener {  }
+            // Sin IDENTIFICADOR (crear)
+            referenciaEjemploEstudiante
+                .add(datosEstudiante)
+                .addOnCompleteListener {  }
+                .addOnFailureListener {  }
+        }
     fun consultarIndiceCompuesto( adaptador: ArrayAdapter<ICities> ){
         val db = Firebase.firestore
         val citiesRefUnico = db.collection("cities")
