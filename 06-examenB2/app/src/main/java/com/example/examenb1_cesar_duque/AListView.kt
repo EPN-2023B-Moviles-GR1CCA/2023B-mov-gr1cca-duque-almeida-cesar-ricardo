@@ -12,6 +12,8 @@ import android.widget.Button
 import android.widget.ListView
 import android.widget.TextView
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 class AListView : AppCompatActivity() {
     lateinit var arreglo:ArrayList<Aplicacion>;
@@ -92,7 +94,7 @@ class AListView : AppCompatActivity() {
             }
             R.id.mi_eliminar2 -> {
                 val respuesta = BaseDeDatos.tablas!!.eliminarAplicacion(programaSeleccionado.id)
-
+                eliminarAplicacion(programaSeleccionado.id.toString(),programaSeleccionado.sistemaOperativoId.toString())
                 val intent = Intent(this, AListView::class.java)
                 intent.putExtra("id",programaSeleccionado.sistemaOperativoId )
                 intent.putExtra("nombre", nombreSo)
@@ -117,5 +119,16 @@ class AListView : AppCompatActivity() {
     ){
         val intent = Intent(this, clase)
         startActivity(intent)
+    }
+    fun eliminarAplicacion(id:String,idSO:String){
+        val db = Firebase.firestore
+        val referenciaAplicaion = db
+            .collection("SistemaOperativo").document(idSO).collection("Aplicacion")
+
+        referenciaAplicaion
+            .document(id)
+            .delete() // elimina
+            .addOnCompleteListener { /* Si todo salio bien*/ }
+            .addOnFailureListener { /* Si algo salio mal*/ }
     }
 }

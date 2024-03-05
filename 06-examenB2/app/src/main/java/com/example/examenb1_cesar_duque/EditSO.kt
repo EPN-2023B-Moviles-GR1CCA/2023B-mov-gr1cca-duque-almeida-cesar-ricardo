@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import java.text.SimpleDateFormat
 import java.util.Date
 
@@ -88,5 +90,33 @@ class EditSO : AppCompatActivity() {
     ){
         val intent = Intent(this, clase)
         startActivity(intent)
+    }
+    fun editarSO(
+        id: String,
+        nombre: String,
+        descripcion: String,
+        fechaLanzamiento: String,
+        esGratis: Int,
+        desarrollador: String
+    ){
+        val db = Firebase.firestore
+        val referenciaSistemaOperativo = db
+            .collection("SistemaOperativo")
+        // .document("id_hijo")
+        // .collection("estudiante")
+        val datosSO = hashMapOf(
+            "nombre" to nombre,
+            "version" to descripcion,
+            "fechaLanzamiento" to fechaLanzamiento,
+            "esGratis" to esGratis,
+            "desarrollador" to desarrollador
+        )
+
+        // identificador quemado (crear/actualizar)
+        referenciaSistemaOperativo
+            .document(id)
+            .set(datosSO)
+            .addOnSuccessListener {  }
+            .addOnFailureListener {  }
     }
 }

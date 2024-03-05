@@ -95,6 +95,7 @@ class SOListView : AppCompatActivity() {
                         sistemaOperativoSeleccionado.id
                     )
                 if (respuesta) mostrarSnackbar("Sistema Operativo Eliminado")
+                eliminarSO(sistemaOperativoSeleccionado.id.toString())
                 irActividad(SOListView::class.java)
                 return true
             }
@@ -118,6 +119,27 @@ class SOListView : AppCompatActivity() {
                 Snackbar.LENGTH_LONG // tiempo
             )
             .show()
+    }
+    fun eliminarSO(id:String){
+        val db = Firebase.firestore
+        val referenciaSO = db.collection("SistemaOperativo");
+            referenciaSO.document(id).collection("Aplicacion").get()
+            .addOnSuccessListener {
+                // it => eso (lo que llegue)
+                for (aplicacion in it) {
+                    referenciaSO.document(id).collection("Aplicacion").document(aplicacion.id)
+                        .delete() // elimina
+                        .addOnCompleteListener { /* Si todo salio bien*/ }
+                        .addOnFailureListener { /* Si algo salio mal*/ }
+                }
+            }
+
+
+        referenciaSO
+            .document(id)
+            .delete() // elimina
+            .addOnCompleteListener { /* Si todo salio bien*/ }
+            .addOnFailureListener { /* Si algo salio mal*/ }
     }
 
 }
