@@ -86,7 +86,7 @@ class ESqliteHelperExamen (
         fechaLanzamiento: String,
         categoria: String,
         sistemaOperativoId: Int // Deberías pasar el ID del sistema operativo asociado
-    ): Boolean {
+    ): Pair<Boolean, Long> {
         val basedatosEscritura = writableDatabase
         val valoresAGuardar = ContentValues().apply {
             put("nombre", nombre)
@@ -104,7 +104,9 @@ class ESqliteHelperExamen (
         )
 
         basedatosEscritura.close()
-        return resultadoGuardar.toInt() != -1
+        val exitoso = resultadoGuardar.toInt() != -1
+        val idDatoInsertado = if (exitoso) resultadoGuardar else -1L // Obtiene el ID del último dato insertado
+        return Pair(exitoso, idDatoInsertado)
     }
 
     fun eliminarSistemaOperativo(id: Int): Boolean {

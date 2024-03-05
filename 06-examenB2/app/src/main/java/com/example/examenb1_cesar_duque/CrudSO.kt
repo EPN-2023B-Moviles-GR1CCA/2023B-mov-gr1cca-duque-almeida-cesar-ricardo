@@ -80,7 +80,7 @@ class CrudSO : AppCompatActivity() {
         // .collection("estudiante")
         val datosSO = hashMapOf(
             "nombre" to nombre,
-            "descripcion" to descripcion,
+            "version" to descripcion,
             "fechaLanzamiento" to fechaLanzamiento,
             "esGratis" to esGratis,
             "desarrollador" to desarrollador
