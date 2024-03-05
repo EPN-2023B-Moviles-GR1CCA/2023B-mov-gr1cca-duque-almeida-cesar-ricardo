@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import java.text.SimpleDateFormat
 import java.util.Date
 
@@ -64,6 +66,15 @@ class EditAplicacion : AppCompatActivity() {
             )
 
             if (respuesta){
+                editarAplicacion(
+                    id.toString(),
+                    sistemaOperativoId.toString(),
+                    nombre.text.toString(),
+                    version.text.toString(),
+                    tamanoMbInt,
+                    fechaLanzamiento.text.toString(), // Asegúrate de manejar correctamente la fecha
+                    categoria.text.toString(),
+                )
                 val intent = Intent(this, AListView::class.java)
                 intent.putExtra("id", sistemaOperativoId)
                 intent.putExtra("nombre", nombreSo)
@@ -79,6 +90,33 @@ class EditAplicacion : AppCompatActivity() {
         val intent = Intent(this, clase)
         startActivity(intent)
     }
+    fun editarAplicacion(
+        id:String,
+        idSO: String,
+        nombre: String,
+        version: String,
+        tamanoMb: Int,
+        fechaLanzamiento: String,
+        categoria: String
+    ){
+        val db = Firebase.firestore
+        val referenciaAplicacion = db.collection("SistemaOperativo").document(idSO)
+            .collection("Aplicacion")
 
+        val datosAplicacion = hashMapOf(
+            "nombre" to nombre,
+            "version" to version,
+            "tamanoMb" to tamanoMb,
+            "fechaLanzamiento" to fechaLanzamiento,
+            "categoria" to categoria
+        )
+
+        // identificador quemado (crear/actualizar)
+        referenciaAplicacion
+            .document(id)
+            .set(datosAplicacion)
+            .addOnSuccessListener {  }
+            .addOnFailureListener {  }
+    }
 
 }

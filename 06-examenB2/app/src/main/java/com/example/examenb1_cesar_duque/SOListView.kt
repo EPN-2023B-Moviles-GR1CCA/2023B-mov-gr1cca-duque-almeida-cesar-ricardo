@@ -123,6 +123,7 @@ class SOListView : AppCompatActivity() {
     fun eliminarSO(id:String){
         val db = Firebase.firestore
         val referenciaSO = db.collection("SistemaOperativo");
+
             referenciaSO.document(id).collection("Aplicacion").get()
             .addOnSuccessListener {
                 // it => eso (lo que llegue)

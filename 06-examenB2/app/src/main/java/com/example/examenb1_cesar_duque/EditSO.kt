@@ -73,6 +73,14 @@ class EditSO : AppCompatActivity() {
             )
 
             if (respuesta) mostrarSnackbar("SO Actualizado")
+            editarSO(
+                idSO.toString(),
+                nombre.text.toString(),
+                version.text.toString(),
+                fechaLanzamiento.text.toString(),
+                esGratisInt,
+                desarrollador.text.toString()
+            )
             irActividad(SOListView::class.java)
         }
     }
@@ -102,8 +110,6 @@ class EditSO : AppCompatActivity() {
         val db = Firebase.firestore
         val referenciaSistemaOperativo = db
             .collection("SistemaOperativo")
-        // .document("id_hijo")
-        // .collection("estudiante")
         val datosSO = hashMapOf(
             "nombre" to nombre,
             "version" to descripcion,
